@@ -1,0 +1,8 @@
+@startuml
+interface ResourceBundleLocator
+
+class MessageSourceResourceBundleLocator
+
+ResourceBundleLocator <|-- MessageSourceResourceBundleLocator
+
+@enduml

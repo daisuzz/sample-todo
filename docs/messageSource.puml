@@ -1,0 +1,27 @@
+@startuml
+
+interface MessageSource
+
+interface HierarchicalMessageSource
+
+abstract class AbstractMessageSource
+
+abstract class MessageSourceSupport
+
+abstract class AbstractResourceBasedMessageSource{
+    setBasename()
+}
+note left: setBasename()はファイルの拡張子や言語名を指定する必要がない。\n messagesと指定すると、messages.propertiesやmessages_ja.prpertiesをresorucefileとみなす
+
+class ResourceBundleMessageSource
+
+class ReloadableResourceBundleMessageSource
+
+MessageSource <|-- HierarchicalMessageSource
+HierarchicalMessageSource <|-- AbstractMessageSource
+MessageSourceSupport <|-- AbstractMessageSource
+AbstractMessageSource <|-- AbstractResourceBasedMessageSource
+AbstractResourceBasedMessageSource <|-- ResourceBundleMessageSource
+AbstractResourceBasedMessageSource <|-- ReloadableResourceBundleMessageSource
+
+@enduml
