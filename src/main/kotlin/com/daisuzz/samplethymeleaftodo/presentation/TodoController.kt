@@ -1,5 +1,6 @@
 package com.daisuzz.samplethymeleaftodo.presentation
 
+import com.daisuzz.samplethymeleaftodo.configuration.ListStringEditor
 import com.daisuzz.samplethymeleaftodo.usecase.TodoCreateService
 import com.daisuzz.samplethymeleaftodo.usecase.TodoDeleteService
 import com.daisuzz.samplethymeleaftodo.usecase.TodoQueryService
@@ -22,6 +23,7 @@ class TodoController(
     @InitBinder()
     fun allowEmptyDataBinding(binder: WebDataBinder) {
         binder.registerCustomEditor(String::class.java, StringTrimmerEditor(true))
+        binder.registerCustomEditor(List::class.java, ListStringEditor(List::class.java))
     }
 
     @GetMapping
