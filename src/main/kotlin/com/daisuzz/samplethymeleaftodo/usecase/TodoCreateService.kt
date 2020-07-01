@@ -10,6 +10,8 @@ import java.util.*
 class TodoCreateService(private val todoRepository: TodoRepository) {
 
     fun createTodo(form: TodoCreateForm) {
+        requireNotNull(form.title)
+        requireNotNull(form.detail)
 
         val id = UUID.randomUUID().mostSignificantBits.toString()
 
