@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.ModelAndView
 
 @Controller
-@RequestMapping("todo")
+@RequestMapping
 class TodoController(
         private val todoQueryService: TodoQueryService,
         private val todoCreateService: TodoCreateService,
         private val todoDeleteService: TodoDeleteService
 ) {
 
-    @InitBinder()
+    @InitBinder
     fun allowEmptyDataBinding(binder: WebDataBinder) {
         binder.registerCustomEditor(String::class.java, StringTrimmerEditor(true))
         binder.registerCustomEditor(List::class.java, ListStringEditor(List::class.java))
@@ -37,7 +37,7 @@ class TodoController(
         return modelAndView
     }
 
-    @PostMapping
+    @PostMapping("todo")
     fun create(@Validated form: TodoCreateForm,
                bindingResult: BindingResult,
                modelAndView: ModelAndView): ModelAndView {
@@ -58,7 +58,7 @@ class TodoController(
         return modelAndView
     }
 
-    @PostMapping("{id}")
+    @PostMapping("todo/{id}")
     fun delete(@PathVariable id: String, modelAndView: ModelAndView): ModelAndView {
 
         todoDeleteService.deleteTodo(id)
