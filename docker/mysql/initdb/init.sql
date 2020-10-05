@@ -1,0 +1,13 @@
+DROP SCHEMA IF EXISTS sample;
+CREATE SCHEMA sample;
+USE sample;
+
+DROP TABLE IF EXISTS TODO;
+
+CREATE TABLE todo (
+    id INT AUTO_INCREMENT,
+    title VARCHAR(20),
+    detail VARCHAR(1000),
+    isDone BIT,
+    PRIMARY KEY(id)
+);
