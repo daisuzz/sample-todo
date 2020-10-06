@@ -2,10 +2,10 @@ DROP SCHEMA IF EXISTS sample;
 CREATE SCHEMA sample;
 USE sample;
 
-DROP TABLE IF EXISTS TODO;
+DROP TABLE IF EXISTS todo;
 
 CREATE TABLE todo (
-    id INT AUTO_INCREMENT,
+    id VARCHAR(64),
     title VARCHAR(20),
     detail VARCHAR(1000),
     isDone BIT,

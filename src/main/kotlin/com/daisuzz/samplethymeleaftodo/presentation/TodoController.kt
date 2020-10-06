@@ -62,7 +62,7 @@ class TodoController(
     fun delete(@PathVariable id: String, modelAndView: ModelAndView): ModelAndView {
 
         todoDeleteService.deleteTodo(id)
-        modelAndView.viewName = "redirect:/todo"
+        modelAndView.viewName = "redirect:/"
         return modelAndView
     }
 }
