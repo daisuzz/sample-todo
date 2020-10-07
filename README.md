@@ -13,7 +13,18 @@ Sample Todo application with Spring Boot and Thymeleaf.
 - Buildpack
 - GitHub Actions
 
+# Usage
+## build application container
+```
+make init
+```
+
 ## start
 ```
-$ docker-compose up
+$ make up
+```
+
+## down 
+```
+$ make down
 ```
