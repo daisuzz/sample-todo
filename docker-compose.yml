@@ -18,7 +18,7 @@ services:
       - 3306:3306
   app-server:
     container_name: sample-thymeleaf-todo
-    build: .
+    image: sample-thymeleaf-todo:0.0.1-SNAPSHOT
     depends_on:
       - db-server
     ports:
