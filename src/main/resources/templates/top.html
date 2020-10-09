@@ -32,7 +32,7 @@
         <div class="card" th:each="todo : ${todoList}">
             <div class="card-header" th:text="${todo.getTitle()}"></div>
             <div class="card-body" th:text="${todo.getDetail()}"></div>
-            <form method="post" th:action="@{/todo/{id}(id=${todo.getId()})}">
+            <form th:action="@{/todo/{id}(id=${todo.getId()})}" th:method="delete">
                 <button type="submit" class="btn btn-primary">delete</button>
             </form>
         </div>
