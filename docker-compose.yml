@@ -28,7 +28,6 @@ services:
       spring.datasource.url: "jdbc:mysql://db-server/sample"
       spring.datasource.username: "user"
       spring.datasource.password: "password"
-
 volumes:
   mysql_db:
     driver: local

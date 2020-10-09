@@ -58,7 +58,7 @@ class TodoController(
         return modelAndView
     }
 
-    @PostMapping("todo/{id}")
+    @DeleteMapping("todo/{id}")
     fun delete(@PathVariable id: String, modelAndView: ModelAndView): ModelAndView {
 
         todoDeleteService.deleteTodo(id)
