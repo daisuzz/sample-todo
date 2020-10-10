@@ -31,20 +31,23 @@
         <h3>Todo List</h3>
         <div class="card" th:each="todo : ${todoList}">
             <div th:switch="${todo.isDone()}" class="card-header">
-                <del th:case="true" th:text="${todo.getTitle()}"></del>
+                <del th:case="true" class="text-muted" th:text="${todo.getTitle()}"></del>
                 <div th:case="false" th:text="${todo.getTitle()}"></div>
             </div>
             <div th:switch="${todo.isDone()}" class="card-body">
-                <del th:case="true" th:text="${todo.getDetail()}"></del>
+                <del th:case="true" class="text-muted" th:text="${todo.getDetail()}"></del>
                 <div th:case="false" th:text="${todo.getDetail()}"></div>
             </div>
-            <form th:unless="${todo.isDone()}" th:action="@{/todo/{id}(id=${todo.getId()})}" th:method="post">
-                <input type="hidden" name="isDone" value="true">
-                <button type="submit" class="btn btn-primary">done</button>
-            </form>
-            <form th:action="@{/todo/{id}(id=${todo.getId()})}" th:method="delete">
-                <button type="submit" class="btn btn-primary">delete</button>
-            </form>
+            <div class="d-flex">
+                <form th:unless="${todo.isDone()}" th:action="@{/todo/{id}(id=${todo.getId()})}"
+                      th:method="post">
+                    <input type="hidden" name="isDone" value="true">
+                    <button type="submit" class="btn btn-primary">done</button>
+                </form>
+                <form th:action="@{/todo/{id}(id=${todo.getId()})}" th:method="delete">
+                    <button type="submit" class="btn btn-primary">delete</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
