@@ -4,6 +4,7 @@ import com.daisuzz.samplethymeleaftodo.configuration.ListStringEditor
 import com.daisuzz.samplethymeleaftodo.usecase.TodoCreateService
 import com.daisuzz.samplethymeleaftodo.usecase.TodoDeleteService
 import com.daisuzz.samplethymeleaftodo.usecase.TodoQueryService
+import com.daisuzz.samplethymeleaftodo.usecase.TodoUpdateService
 import org.springframework.beans.propertyeditors.StringTrimmerEditor
 import org.springframework.stereotype.Controller
 import org.springframework.validation.BindingResult
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView
 class TodoController(
         private val todoQueryService: TodoQueryService,
         private val todoCreateService: TodoCreateService,
+        private val todoUpdateService: TodoUpdateService,
         private val todoDeleteService: TodoDeleteService
 ) {
 
@@ -55,6 +57,14 @@ class TodoController(
 
         modelAndView.addObject("todoList", todoList)
         modelAndView.viewName = "top"
+        return modelAndView
+    }
+
+    @PostMapping("todo/{id}")
+    fun update(@PathVariable id: String, @RequestParam("isDone") isDone: Boolean, modelAndView: ModelAndView): ModelAndView {
+
+        todoUpdateService.updateTodo(id, isDone)
+        modelAndView.viewName = "redirect:/"
         return modelAndView
     }
 
