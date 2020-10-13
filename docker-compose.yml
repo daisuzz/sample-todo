@@ -16,6 +16,29 @@ services:
       - mysql_db:/var/lib/mysql
     ports:
       - 3306:3306
+  schemaspy:
+    image: schemaspy/schemaspy
+    depends_on:
+      - db-server
+    container_name: schemaspy
+    volumes:
+      - ./docker/schemaspy/output:/output
+      - ./docker/schemaspy/config:/config
+    environment:
+      - LANG=ja_JP.UTF-8
+      - TZ=Asia/Tokyo
+    command: [ "-configFile", "/config/schemaspy.properties" ]
+
+  schemaspy-server:
+    image: nginx
+    depends_on:
+      - schemaspy
+    container_name: "nginx_for_schemaspy"
+    ports:
+      - "8181:80"
+    volumes:
+      - ./docker/schemaspy/output:/usr/share/nginx/html:ro
+
   app-server:
     container_name: sample-thymeleaf-todo
     image: sample-thymeleaf-todo:0.0.1-SNAPSHOT
