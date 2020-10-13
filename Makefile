@@ -1,6 +1,6 @@
-init:
+build:
 	mvn spring-boot:build-image
-up:
+all:
 	docker-compose up
 down:
 	docker-compose down

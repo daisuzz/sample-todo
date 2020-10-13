@@ -4,6 +4,9 @@ target/
 !**/src/main/**
 !**/src/test/**
 
+### SchemaSpy ###
+docker/schemaspy/output
+
 ### STS ###
 .apt_generated
 .classpath
