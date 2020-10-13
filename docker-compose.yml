@@ -24,9 +24,6 @@ services:
     volumes:
       - ./docker/schemaspy/output:/output
       - ./docker/schemaspy/config:/config
-    environment:
-      - LANG=ja_JP.UTF-8
-      - TZ=Asia/Tokyo
     command: [ "-configFile", "/config/schemaspy.properties" ]
 
   schemaspy-server:
