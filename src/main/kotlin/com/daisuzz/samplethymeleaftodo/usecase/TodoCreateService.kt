@@ -2,14 +2,13 @@ package com.daisuzz.samplethymeleaftodo.usecase
 
 import com.daisuzz.samplethymeleaftodo.domain.Todo
 import com.daisuzz.samplethymeleaftodo.domain.TodoRepository
-import com.daisuzz.samplethymeleaftodo.presentation.TodoCreateForm
 import org.springframework.stereotype.Service
 import java.util.*
 
 @Service
 class TodoCreateService(private val todoRepository: TodoRepository) {
 
-    fun createTodo(form: TodoCreateForm) {
+    fun createTodo(form: TodoCreateDto) {
         requireNotNull(form.title)
         requireNotNull(form.detail)
 
