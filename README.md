@@ -11,7 +11,6 @@ Sample Todo application with Spring Boot and Thymeleaf.
 #### Infrastructure
 - Docker Compose
 - Buildpack
-- GitHub Actions
 
 #### CI/CD
 - ArchUnit
