@@ -1,10 +1,7 @@
 package com.daisuzz.samplethymeleaftodo.presentation
 
 import com.daisuzz.samplethymeleaftodo.configuration.ListStringEditor
-import com.daisuzz.samplethymeleaftodo.usecase.TodoCreateService
-import com.daisuzz.samplethymeleaftodo.usecase.TodoDeleteService
-import com.daisuzz.samplethymeleaftodo.usecase.TodoQueryService
-import com.daisuzz.samplethymeleaftodo.usecase.TodoUpdateService
+import com.daisuzz.samplethymeleaftodo.usecase.*
 import org.springframework.beans.propertyeditors.StringTrimmerEditor
 import org.springframework.stereotype.Controller
 import org.springframework.validation.BindingResult
@@ -51,7 +48,7 @@ class TodoController(
             return modelAndView
         }
 
-        todoCreateService.createTodo(form)
+        todoCreateService.createTodo(TodoCreateDto(form.title, form.detail))
 
         val todoList = todoQueryService.getAllTodo()
 

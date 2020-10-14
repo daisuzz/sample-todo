@@ -11,10 +11,6 @@ public class ListStringEditor extends CustomCollectionEditor {
         super(collectionType);
     }
 
-    public ListStringEditor(Class<? extends Collection> collectionType, boolean nullAsEmptyCollection) {
-        super(collectionType, nullAsEmptyCollection);
-    }
-
     @Override
     protected Object convertElement(@NotNull Object element) {
         if (element instanceof String) {
@@ -23,7 +19,7 @@ public class ListStringEditor extends CustomCollectionEditor {
                 return null;
             }
         }
-
+        ;
         return element;
     }
 }
