@@ -13,6 +13,12 @@ Sample Todo application with Spring Boot and Thymeleaf.
 - Buildpack
 - GitHub Actions
 
+#### CI/CD
+- ArchUnit
+- Jacoco
+- Codecov
+- GitHub Action
+
 # Usage
 ## build application container
 ```
