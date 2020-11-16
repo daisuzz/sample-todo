@@ -8,26 +8,26 @@
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">ToDoManager</a>
+</nav>
 <div class="container">
-    <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">ToDo Manager</a>
-    </nav>
-    <div>
+    <div class="row">
         <form method="post" action="/todo" th:object="${todoCreateForm}">
             <div class="form-group">
-                <label th:for="*{title}">Title</label>
+                <label th:for="*{title}">タイトル</label>
                 <input type="text" class="form-control" name="title">
                 <p class="alert alert-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
             </div>
             <div class="form-group">
-                <label th:for="*{detail}">Detail</label>
+                <label th:for="*{detail}">詳細</label>
                 <textarea class="form-control" name="detail"></textarea>
                 <p class="alert alert-danger" th:if="${#fields.hasErrors('detail')}" th:errors="*{detail}"></p>
             </div>
             <button type="submit" class="btn btn-primary"> create</button>
         </form>
     </div>
-    <div>
+    <div class="row">
         <h3>Todo List</h3>
         <div class="card" th:each="todo : ${todoList}">
             <div th:switch="${todo.isDone()}" class="card-header">
