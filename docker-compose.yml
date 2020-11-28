@@ -8,14 +8,12 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: admin
-    expose:
-      - 3306
     volumes:
       - ./docker/mysql/initdb:/docker-entrypoint-initdb.d
       - ./docker/mysql/config:/etc/mysql/conf.d
       - mysql_db:/var/lib/mysql
     ports:
-      - 3306:3306
+      - "13306:3306"
   schemaspy:
     image: schemaspy/schemaspy
     depends_on:
