@@ -49,11 +49,7 @@ class TodoController(
         }
 
         todoCreateService.createTodo(TodoCreateDto(form.title, form.detail))
-
-        val todoList = todoQueryService.getAllTodo()
-
-        modelAndView.addObject("todoList", todoList)
-        modelAndView.viewName = "top"
+        modelAndView.viewName = "redirect:/"
         return modelAndView
     }
 

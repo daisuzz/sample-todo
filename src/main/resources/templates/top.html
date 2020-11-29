@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,9 +10,10 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">ToDoManager</a>
+    <span class="navbar-text" sec:authentication="principal.username">guest</span>
 </nav>
 <div class="container">
-    <div class="row">
+    <div class="my-2">
         <form method="post" action="/todo" th:object="${todoCreateForm}">
             <div class="form-group">
                 <label th:for="*{title}">タイトル</label>
@@ -27,29 +28,28 @@
             <button type="submit" class="btn btn-primary"> create</button>
         </form>
     </div>
-    <div class="row">
+
+    <div class="my-2">
         <h3>Todo List</h3>
-    </div>
-
-
-    <div class="card" th:each="todo : ${todoList}">
-        <div th:switch="${todo.isDone()}" class="card-header">
-            <del th:case="true" class="text-muted" th:text="${todo.getTitle()}"></del>
-            <div th:case="false" th:text="${todo.getTitle()}"></div>
-        </div>
-        <div th:switch="${todo.isDone()}" class="card-body">
-            <del th:case="true" class="text-muted" th:text="${todo.getDetail()}"></del>
-            <div th:case="false" th:text="${todo.getDetail()}"></div>
-        </div>
-        <div class="d-flex">
-            <form th:unless="${todo.isDone()}" th:action="@{/todo/{id}(id=${todo.getId()})}"
-                  th:method="post">
-                <input type="hidden" name="isDone" value="true">
-                <button type="submit" class="btn btn-primary">done</button>
-            </form>
-            <form th:action="@{/todo/{id}(id=${todo.getId()})}" th:method="delete">
-                <button type="submit" class="btn btn-primary">delete</button>
-            </form>
+        <div class="card" th:each="todo : ${todoList}">
+            <div th:switch="${todo.isDone()}" class="card-header">
+                <del th:case="true" class="text-muted" th:text="${todo.getTitle()}"></del>
+                <div th:case="false" th:text="${todo.getTitle()}"></div>
+            </div>
+            <div th:switch="${todo.isDone()}" class="card-body">
+                <del th:case="true" class="text-muted" th:text="${todo.getDetail()}"></del>
+                <div th:case="false" th:text="${todo.getDetail()}"></div>
+            </div>
+            <div class="d-flex">
+                <form class="p-2" th:unless="${todo.isDone()}" th:action="@{/todo/{id}(id=${todo.getId()})}"
+                      th:method="post">
+                    <input type="hidden" name="isDone" value="true">
+                    <button type="submit" class="btn btn-primary">done</button>
+                </form>
+                <form class="p-2" th:action="@{/todo/{id}(id=${todo.getId()})}" th:method="delete">
+                    <button type="submit" class="btn btn-primary">delete</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
