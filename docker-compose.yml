@@ -13,7 +13,7 @@ services:
       - ./docker/mysql/config:/etc/mysql/conf.d
       - mysql_db:/var/lib/mysql
     ports:
-      - "13306:3306"
+      - "3306:3306"
   schemaspy:
     image: schemaspy/schemaspy
     depends_on:
