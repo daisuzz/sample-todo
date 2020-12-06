@@ -1,7 +1,6 @@
 version: "3"
 services:
   db-server:
-    container_name: sample-mysql
     image: mysql:5.7
     environment:
       MYSQL_DATABASE: sample
@@ -11,14 +10,12 @@ services:
     volumes:
       - ./docker/mysql/initdb:/docker-entrypoint-initdb.d
       - ./docker/mysql/config:/etc/mysql/conf.d
-      - mysql_db:/var/lib/mysql
     ports:
       - "3306:3306"
   schemaspy:
     image: schemaspy/schemaspy
     depends_on:
       - db-server
-    container_name: schemaspy
     volumes:
       - ./docker/schemaspy/output:/output
       - ./docker/schemaspy/config:/config
@@ -28,14 +25,12 @@ services:
     image: nginx
     depends_on:
       - schemaspy
-    container_name: "nginx_for_schemaspy"
     ports:
       - "8181:80"
     volumes:
       - ./docker/schemaspy/output:/usr/share/nginx/html:ro
 
   app-server:
-    container_name: sample-thymeleaf-todo
     image: sample-thymeleaf-todo:0.0.1-SNAPSHOT
     depends_on:
       - db-server
