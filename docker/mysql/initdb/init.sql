@@ -15,8 +15,7 @@ CREATE TABLE IF NOT EXISTS t_todo
 DROP TABLE IF EXISTS t_user;
 CREATE TABLE IF NOT EXISTS t_user
 (
-    id        BIGINT auto_increment primary key,
-    user_id   VARCHAR(255),
+    user_id   VARCHAR(255) primary key ,
     user_name VARCHAR(10),
     password  VARCHAR(255)
 ) ENGINE = InnoDB
@@ -42,13 +41,13 @@ VALUES (1, 'ADMIN'),
 DROP TABLE IF EXISTS t_user_role;
 CREATE TABLE IF NOT EXISTS t_user_role
 (
-    user_id BIGINT,
+    user_id VARCHAR(255),
     role_id INT,
     primary key (user_id, role_id)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
 INSERT INTO t_user_role (user_id, role_id)
-VALUES (1, 1),
-       (2, 2),
-       (3, 2);
+VALUES ('user1@example.com', 1),
+       ('user2@example.com', 2),
+       ('user3@example.com', 2);

@@ -1,4 +1,4 @@
-package com.daisuzz.samplethymeleaftodo.domain
+package com.daisuzz.samplethymeleaftodo.domain.todo
 
 interface TodoRepository {
 
