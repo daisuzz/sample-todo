@@ -1,7 +1,7 @@
-package com.daisuzz.samplethymeleaftodo.infrastructure
+package com.daisuzz.samplethymeleaftodo.infrastructure.todo
 
-import com.daisuzz.samplethymeleaftodo.domain.Todo
-import com.daisuzz.samplethymeleaftodo.domain.TodoRepository
+import com.daisuzz.samplethymeleaftodo.domain.todo.Todo
+import com.daisuzz.samplethymeleaftodo.domain.todo.TodoRepository
 import org.springframework.stereotype.Repository
 
 @Repository

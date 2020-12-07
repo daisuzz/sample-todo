@@ -1,7 +1,7 @@
 package com.daisuzz.samplethymeleaftodo.usecase
 
-import com.daisuzz.samplethymeleaftodo.domain.Todo
-import com.daisuzz.samplethymeleaftodo.domain.TodoRepository
+import com.daisuzz.samplethymeleaftodo.domain.todo.Todo
+import com.daisuzz.samplethymeleaftodo.domain.todo.TodoRepository
 import org.springframework.stereotype.Service
 
 @Service
