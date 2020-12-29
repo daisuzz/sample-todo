@@ -19,6 +19,9 @@ class SecurityConfiguration : WebSecurityConfigurerAdapter() {
             .httpBasic()
             .and()
             .csrf().disable()
+        http.logout()
+            .logoutUrl("/logout")
+            .logoutSuccessUrl("/")
     }
 
     // for testing
