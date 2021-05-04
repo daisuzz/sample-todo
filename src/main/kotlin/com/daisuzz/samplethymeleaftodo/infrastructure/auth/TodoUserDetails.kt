@@ -1,5 +1,6 @@
-package com.daisuzz.samplethymeleaftodo.domain.auth
+package com.daisuzz.samplethymeleaftodo.infrastructure.auth
 
+import com.daisuzz.samplethymeleaftodo.domain.auth.TodoUser
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 
