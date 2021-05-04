@@ -6,4 +6,4 @@ all:
 down:
 	docker-compose down
 db-up:
-	docker-compose run db-server
+	docker-compose up db-server
