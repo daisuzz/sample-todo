@@ -1,4 +1,4 @@
-package com.daisuzz.samplethymeleaftodo.domain.auth
+package com.daisuzz.samplethymeleaftodo.infrastructure.auth
 
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Select

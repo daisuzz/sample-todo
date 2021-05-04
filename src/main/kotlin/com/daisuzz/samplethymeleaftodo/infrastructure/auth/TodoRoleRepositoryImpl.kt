@@ -1,6 +1,5 @@
 package com.daisuzz.samplethymeleaftodo.infrastructure.auth
 
-import com.daisuzz.samplethymeleaftodo.domain.auth.UserRoleMapper
 import com.daisuzz.samplethymeleaftodo.domain.auth.TodoRoleRepository
 import org.springframework.stereotype.Repository
 
