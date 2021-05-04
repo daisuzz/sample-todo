@@ -22,15 +22,20 @@ Sample Todo application with Spring Boot and Thymeleaf.
 # Usage
 ## build application container
 ```
-make init
+make build
 ```
 
 ## start
 ```
-$ make up
+make up
 ```
 
 ## down 
 ```
-$ make down
+make down
+```
+
+## start db
+```
+make db-up
 ```
