@@ -11,11 +11,9 @@ package usecase{
 
 package domain {
     package auth {
-        note "認証ドメイン" as auth
         class TodoUser
     }
     package todo {
-        note "タスクドメイン" as todo
         class Todo
     }
     interface Repository
