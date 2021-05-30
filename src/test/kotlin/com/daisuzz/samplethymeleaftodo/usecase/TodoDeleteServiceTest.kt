@@ -2,7 +2,6 @@ package com.daisuzz.samplethymeleaftodo.usecase
 
 import com.daisuzz.samplethymeleaftodo.infrastructure.todo.TodoMapper
 import org.junit.jupiter.api.Test
-import org.mockito.kotlin.any
 import org.mockito.kotlin.doNothing
 import org.mockito.kotlin.verify
 import org.springframework.beans.factory.annotation.Autowired
@@ -10,22 +9,20 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
 
 @SpringBootTest
-class TodoCreateServiceTest : AbstractIntegrationTest() {
+class TodoDeleteServiceTest : AbstractIntegrationTest() {
 
     @MockBean
     lateinit var todoMapper: TodoMapper
 
     @Autowired
-    lateinit var todoCreateService: TodoCreateService
+    lateinit var todoDeleteService: TodoDeleteService
 
     @Test
-    fun TODOを作成することができる() {
+    fun TODOを削除できる() {
+        doNothing().`when`(todoMapper).delete("1")
 
-        doNothing().`when`(todoMapper).create(any())
+        todoDeleteService.deleteTodo("1")
 
-        val todoCreateDto = TodoCreateDto("title", "detail")
-        todoCreateService.createTodo(todoCreateDto)
-
-        verify(todoMapper).create(any())
+        verify(todoMapper).delete("1")
     }
 }
