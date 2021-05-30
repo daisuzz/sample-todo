@@ -11,12 +11,10 @@ abstract class AbstractIntegrationTest {
 
         class KDockerComposeContainer(file: File) : DockerComposeContainer<KDockerComposeContainer>(file)
 
-        private val instance: KDockerComposeContainer by lazy { defineDockerCompose() }
-
-        private fun defineDockerCompose() = KDockerComposeContainer(File("docker-compose.yml"))
-            .withExposedService("db-server", 3306)
-
         init {
+            val instance: KDockerComposeContainer = KDockerComposeContainer(File("docker-compose.yml"))
+                .withExposedService("db-server", 3306)
+
             instance.start()
         }
     }
