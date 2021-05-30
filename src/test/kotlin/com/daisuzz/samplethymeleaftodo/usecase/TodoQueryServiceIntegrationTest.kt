@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
 
 @SpringBootTest
-class TodoQueryServiceTest : AbstractIntegrationTest() {
+class TodoQueryServiceIntegrationTest : AbstractIntegrationTest() {
 
     @MockBean
     lateinit var todoMapper: TodoMapper
