@@ -11,10 +11,10 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
+      - name: remove docker images on local
+        run: docker image prune --force
       - uses: actions/checkout@v2
       - name: set up jdk11
         uses: actions/setup-java@v1
