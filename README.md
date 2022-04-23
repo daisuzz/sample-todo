@@ -2,18 +2,20 @@
 Sample Todo application with Spring Boot and Thymeleaf.
 
 #### Application
-- Java 11, Kotlin 1.3
-- Spring Boot 2.4
-- Spring Security 5.4.6
+- Java 11, Kotlin 1.6
+- Spring Boot 2.6
+- Spring Security 5.6.3
 - Thymeleaf, Bootstrap
 - MySQL 5.7
-- Mybatis 2.1.3
+- Mybatis 3.5.9
 
 #### Infrastructure
 - Docker Compose
 - Buildpack
 
-#### CI/CD
+#### Testing, CI/CD
+- JUnit
+- Testcontainers
 - ArchUnit
 - Jacoco
 - Codecov
