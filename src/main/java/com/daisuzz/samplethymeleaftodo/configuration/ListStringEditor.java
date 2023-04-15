@@ -13,8 +13,7 @@ public class ListStringEditor extends CustomCollectionEditor {
 
     @Override
     protected Object convertElement(@NotNull Object element) {
-        if (element instanceof String) {
-            String str = (String) element;
+        if (element instanceof String str) {
             if (str.isBlank()) {
                 return null;
             }
