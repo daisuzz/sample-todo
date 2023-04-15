@@ -11,10 +11,11 @@ class ArchUnitTest {
         val javaClasses = ClassFileImporter().importPackages("com.daisuzz.samplethymeleaftodo")
 
         val rule: ArchRule = layeredArchitecture()
-                .layer("Controller").definedBy("..presentation..")
-                .layer("UseCase").definedBy("..usecase..")
-                .whereLayer("Controller").mayNotBeAccessedByAnyLayer()
-                .whereLayer("UseCase").mayOnlyBeAccessedByLayers("Controller")
+            .consideringAllDependencies()
+            .layer("Controller").definedBy("..presentation..")
+            .layer("UseCase").definedBy("..usecase..")
+            .whereLayer("Controller").mayNotBeAccessedByAnyLayer()
+            .whereLayer("UseCase").mayOnlyBeAccessedByLayers("Controller")
         rule.check(javaClasses)
     }
 }
