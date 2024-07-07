@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.5</version>
+        <version>3.3.1</version>
         <relativePath/>
     </parent>
     <groupId>com.daisuzz</groupId>
@@ -18,8 +18,8 @@
         <java.version>17</java.version>
         <kotlin.version>1.6.21</kotlin.version>
         <thymeleaf-springsecurity.version>3.1.1.RELEASE</thymeleaf-springsecurity.version>
-        <openrewrite.version>4.43.0</openrewrite.version>
-        <mybatis-spring.version>3.0.1</mybatis-spring.version>
+        <openrewrite.version>5.35.0</openrewrite.version>
+        <mybatis-spring.version>3.0.3</mybatis-spring.version>
         <testcontainer.version>1.18.0</testcontainer.version>
         <mockito-kotlin.version>4.1.0</mockito-kotlin.version>
     </properties>
@@ -32,7 +32,6 @@
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-springsecurity6</artifactId>
-            <version>${thymeleaf-springsecurity.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -96,18 +95,21 @@
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>testcontainers</artifactId>
-            <version>${testcontainer.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>${testcontainer.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>mysql</artifactId>
-            <version>${testcontainer.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mockito.kotlin</groupId>
@@ -126,14 +128,14 @@
                 <version>${openrewrite.version}</version>
                 <configuration>
                     <activeRecipes>
-                        <recipe>org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0</recipe>
+                        <recipe>org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3</recipe>
                     </activeRecipes>
                 </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.openrewrite.recipe</groupId>
                         <artifactId>rewrite-spring</artifactId>
-                        <version>4.35.0</version>
+                        <version>5.14.0</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -163,7 +165,6 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>3.3.0</version>
                 <executions>
                     <execution>
                         <phase>generate-sources</phase>
@@ -181,7 +182,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.8</version>
+                <version>0.8.12</version>
                 <executions>
                     <execution>
                         <goals>
