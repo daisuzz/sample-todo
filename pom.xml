@@ -15,13 +15,14 @@
     <description>sample todo application with Thymeleaf</description>
 
     <properties>
-        <java.version>17</java.version>
-        <kotlin.version>1.6.21</kotlin.version>
+        <java.version>21</java.version>
+        <kotlin.version>1.9.24</kotlin.version>
         <thymeleaf-springsecurity.version>3.1.1.RELEASE</thymeleaf-springsecurity.version>
         <openrewrite.version>5.35.0</openrewrite.version>
         <mybatis-spring.version>3.0.3</mybatis-spring.version>
         <testcontainer.version>1.18.0</testcontainer.version>
-        <mockito-kotlin.version>4.1.0</mockito-kotlin.version>
+        <mockito-kotlin.version>5.3.1</mockito-kotlin.version>
+        <archunit.version>1.3.0</archunit.version>
     </properties>
 
     <dependencies>
@@ -54,10 +55,6 @@
             <artifactId>kotlin-reflect</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib-jdk8</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
@@ -84,7 +81,7 @@
         <dependency>
             <groupId>com.tngtech.archunit</groupId>
             <artifactId>archunit</artifactId>
-            <version>1.0.1</version>
+            <version>${archunit.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
