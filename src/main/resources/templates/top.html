@@ -11,7 +11,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">ToDoManager</a>
+        <a class="navbar-brand" href="/">ToDo</a>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -42,13 +42,11 @@
     <div class="my-2">
         <h3>Todo List</h3>
         <div class="card" th:each="todo : ${todoList}">
-            <div th:switch="${todo.isDone()}" class="card-header">
-                <del th:case="true" class="text-muted" th:text="${todo.getTitle()}"></del>
-                <div th:case="false" th:text="${todo.getTitle()}"></div>
+            <div class="card-header">
+                <div th:class="${todo.isDone()}?'text-muted'" th:text="${todo.getTitle()}"></div>
             </div>
-            <div th:switch="${todo.isDone()}" class="card-body">
-                <del th:case="true" class="text-muted" th:text="${todo.getDetail()}"></del>
-                <div th:case="false" th:text="${todo.getDetail()}"></div>
+            <div class="card-body">
+                <div th:class="${todo.isDone()}?'text-muted'" th:text="${todo.getDetail()}"></div>
             </div>
             <div class="d-flex">
                 <form class="p-2" th:unless="${todo.isDone()}" th:action="@{/todo/{id}(id=${todo.getId()})}"
