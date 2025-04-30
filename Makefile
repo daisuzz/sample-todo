@@ -1,3 +1,5 @@
+init:
+	mvn spring-boot:build-image -DskipTests
 build:
 	mvn spring-boot:build-image
 all:
