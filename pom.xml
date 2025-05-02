@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.1</version>
+        <version>3.4.5</version>
         <relativePath/>
     </parent>
     <groupId>com.daisuzz</groupId>
@@ -19,12 +19,12 @@
         <kotlin.version>1.9.24</kotlin.version>
         <thymeleaf-springsecurity.version>3.1.1.RELEASE</thymeleaf-springsecurity.version>
         <openrewrite.version>5.35.0</openrewrite.version>
-        <mybatis-spring.version>3.0.3</mybatis-spring.version>
+        <mybatis-spring.version>3.0.4</mybatis-spring.version>
         <testcontainer.version>1.18.0</testcontainer.version>
         <mockito-kotlin.version>5.3.1</mockito-kotlin.version>
         <archunit.version>1.3.0</archunit.version>
         <rewrite-spring.version>5.14.0</rewrite-spring.version>
-        <jacoco.version>0.8.12</jacoco.version>
+        <jacoco.version>0.8.13</jacoco.version>
     </properties>
 
     <dependencies>
@@ -94,12 +94,6 @@
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>junit</groupId>
-                    <artifactId>junit</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>

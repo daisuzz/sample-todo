@@ -4,7 +4,6 @@ import com.daisuzz.samplethymeleaftodo.infrastructure.todo.TodoEntity
 import com.daisuzz.samplethymeleaftodo.infrastructure.todo.TodoMapper
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.`when`
-import org.mockito.kotlin.any
 import org.mockito.kotlin.doNothing
 import org.mockito.kotlin.verify
 import org.springframework.beans.factory.annotation.Autowired
