@@ -9,12 +9,12 @@ import org.mockito.Mockito.`when`
 import org.mockito.kotlin.verify
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.boot.test.mock.mockito.MockBean
+import org.springframework.test.context.bean.override.mockito.MockitoBean
 
 @SpringBootTest
 class TodoQueryServiceIntegrationTest : AbstractIntegrationTest() {
 
-    @MockBean
+    @MockitoBean
     lateinit var todoMapper: TodoMapper
 
     @Autowired

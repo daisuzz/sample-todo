@@ -54,7 +54,7 @@ class TodoController(
     }
 
     @PostMapping("todo/{id}")
-    fun update(@PathVariable id: String, @RequestParam("isDone") isDone: Boolean, modelAndView: ModelAndView): ModelAndView {
+    fun update(@PathVariable id: String, @RequestParam isDone: Boolean, modelAndView: ModelAndView): ModelAndView {
 
         todoUpdateService.updateTodo(id, isDone)
         modelAndView.viewName = "redirect:/"
